@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+     <link
+            type="text/css"
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/jsmind/style/jsmind.css"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mindmap Vizualization</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+          <div id="jsmind_container"></div>
+        </div>
+        <div
+          class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex flex-column justify-content-center align-items-center"
+        >
+          <label for="formFile" class="form-label">Upload .json file</label>
+          <input
+            class="form-control"
+            type="file"
+            id="formFile"
+            accept=".json"
+          />
+          <button class="mt-3 btn btn-primary" onclick="toggle_editable(this);">disable editable</button>
+          <button class="mt-1 btn btn-success" onclick="add_node();">add a node</button>
+          <button class="mt-1 btn btn-danger" onclick="remove_node();">remove node</button>
+
+          <label for="selectOption" class="mt-3 form-label">Select an Theme:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="selectOption" onchange="set_theme(this.value);"
+          >
+            <option value="" selected>default</option>
+            <option value="primary">primary</option>
+            <option value="warning">warning</option>
+            <option value="danger">danger</option>
+            <option value="success">success</option>
+            <option value="info">info</option>
+            <option value="greensea">greensea</option>
+            <option value="nephrite">nephrite</option>
+            <option value="belizehole">belizehole</option>
+            <option value="wisteria">wisteria</option>
+            <option value="asphalt">asphalt</option>
+            <option value="orange">orange</option>
+            <option value="pumpkin">pumpkin</option>
+            <option value="pomegranate">pomegranate</option>
+            <option value="clouds">clouds</option>
+            <option value="asbestos">asbestos</option>
+          </select>
+          <button class="sub mt-3 btn btn-secondary" onclick="expand_all();">expand all</button>
+          <button class="sub mt-1 btn btn-info" onclick="collapse_all();">collapse all</button>
+          <div class="input-group mt-3">
+          <span class="input-group-text" id="basic-addon1">Expand till level n</span>
+          <input type="text" id="nlevel" class="form-control" placeholder="Enter the value of n" aria-label="" aria-describedby="basic-addon1">
+          </div>
+          <button class="mt-1 btn btn-success" onclick="expand_n()">Submit</button>
+          <button class="mt-2 btn btn-dark" onclick="show_selected();">Get selected mode value</button>
+          <button class="mt-1 btn btn-warning" class="sub" onclick="show_data();">Download data</button>
+          <button class="mt-1 btn btn-success" id="zoom-in-button" style="width: 50px" ><i class="fa-solid fa-plus"></i></button>
+                    <button class="mt-1 btn btn-danger" id="zoom-out-button" style="width: 50px">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <input type="file" id="file-input" accept=".json" /> -->
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind/es6/jsmind.js"></script>
+        <script
+            type="text/javascript"
+            src="//cdn.jsdelivr.net/npm/jsmind/es6/jsmind.draggable-node.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="//cdn.jsdelivr.net/npm/jsmind/es6/jsmind.screenshot.js"
+        ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
